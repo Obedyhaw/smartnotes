@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="border rounded shadow p-4" style="background-color: #f5f5f5;">
+  <h1 class="text-center display-4 font-weight-bold">{{ note.title }}</h1>  <p class="m-0 lead text-justify">{{ note.text | safe }}</p>            <ul class="list-group list-group-flush mt-4">  {% if note.key_point_1 %}
+      <li class="list-group-item">**Key Point:** {{ note.key_point_1 }}</li>
+    {% endif %}
+    {% if note.key_point_2 %}
+      <li class="list-group-item">**Key Point:** {{ note.key_point_2 }}</li>
+    {% endif %}
+  </ul>
+</div>
+
+<div class="text-center mt-3">
+  <a href="{% url 'notes.list' %}" class="btn btn-secondary">Back</a>
+  
+  {% if note.user == request.user %}
+    <a href="{% url 'notes.update' pk=note.id%}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'notes.delete' pk=note.id%}" class="btn btn-danger">Delete</a>
+  {% endif %}
+</div>
+
+{% endblock %}

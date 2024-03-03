@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if request.user.is_authenticated %}
+    <h1 class="my-1" style="color: blue; position: relative;">Hello {{ request.user|capfirst }},</h1><br>
+    <h2 class="my-5">Here are all the notes:</h2>
+
+    {% if notes %}
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for note in notes %}
+          <div class="col">
+            <div class="card shadow">
+              <div class="card-body">
+                <a href="{% url 'note.ju' pk=note.id %}">
+                  <h3 class="card-title">{{ note.title }}</h3>
+                </a>
+                <p class="card-text">{{ note.text|slice:":10" }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">Created by: {{ note.user }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Created on: {{ note.created }}</h6>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="pagination justify-content-center my-5">
+        {% if notes.has_previous %}
+          <a class="btn btn-primary" href="?page={{ notes.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span class="current-page d-flex align-items-center">Page {{ notes.number }} of {{ notes.paginator.num_pages }}</span>
+        {% if notes.has_next %}
+          <a class="btn btn-primary" href="?page={{ notes.next_page_number }}"> Next</a>
+        {% endif %}
+      </div>
+      <a href="{% url 'notes.new' %}" class="btn btn-primary my-5">Create a new note</a>
+    {% else %}
+      <h1 class="my-5">Oops {{ request.user }}, you have no notes 🥺🥲</h1>
+      <a href="{% url 'notes.new' %}" class="btn btn-primary my-5">Create a new note</a>
+    {% endif %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <title>My first App with Django </title>
+
+    </header>
+    <body><h1>Welcome to my Smart Notes Web App with Django</h1>
+    <p><b>Today is {{today}}</b></p>
+    <a href="{% url 'notes.list' %}" class="btn btn-primary">Check out this smart notes</a>
+    
+    
+{% endblock %}
+    

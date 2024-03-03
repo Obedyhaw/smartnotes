@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+<h1> The Note you are requesting doesn't exist in our database</h1>
+<h4><p class="my-5">Check out the notes avaiable:</p></h4>
+
+<a href="{% url 'notes.list' %}" class="btn btn-primary my-1">Notes</a>
+
+{% endblock %}

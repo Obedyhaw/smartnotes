@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block content%}
+{%if request.user.is_authenticated %}
+
+    
+    {% if user_notes %}
+    <h1 class="my-1", style="color: blue; position: relative;">Hello {{ request.user|capfirst }},</h1><br>
+    <h2 class="my-5">Here are your notes:</h2>
+    
+    <div class="row row-cols g-2">
+        {% for note in user_notes %}
+        <div class="col">
+            <div class="p-3 border">
+                <a href="{% url 'note.ju' pk=note.id %}"><h3>{{note.title}}</h3></a>
+                {{note.text|slice:":10"}}
+                
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'notes.new' %}" class="btn btn-primary my-5">Create a new note</a> 
+    {% else %}
+
+    <h1 class="my-5">Oopss {{request.user}}, you have no notes🥺🥲</h1>
+    <a href="{% url 'notes.new' %}" class="btn btn-primary my-5">Create a new note</a> 
+    {% endif %}
+    {%endif%}    
+    
+{% endblock %}
