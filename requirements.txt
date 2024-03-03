@@ -36,7 +36,6 @@ pillow
 platformdirs
 prompt-toolkit
 psutil
-psycopg2
 psycopg2-binary
 pure-eval
 pydantic
