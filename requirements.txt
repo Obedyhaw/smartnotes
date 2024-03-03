@@ -37,9 +37,10 @@ platformdirs
 prompt-toolkit
 psutil
 psycopg2
+psycopg2-binary
 pure-eval
 pydantic
-pydantic-core
+pydantic_core
 Pygments
 python-dateutil
 python-docx
@@ -58,7 +59,7 @@ starlette
 tornado
 tqdm
 traitlets
-typing-extensions
+typing_extensions
 tzdata
 unoconv
 uvicorn
