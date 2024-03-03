@@ -1,4 +1,4 @@
-aiofiles==3.10.0
+aiofiles
 annotated-types==0.7.0
 anyio==3.10.1
 asgiref==3.5.3
