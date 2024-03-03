@@ -10,7 +10,6 @@ comm==0.2.1
 debugpy==1.8.1
 decorator==5.1.1
 distlib==0.3.8
-Django==5.0.1
 docx2pdf==0.1.8
 et-xmlfile==1.1.0
 executing==2.0.1
