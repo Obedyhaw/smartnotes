@@ -47,7 +47,6 @@ python-engineio
 python-multipart
 python-socketio
 pytz
-pywin32
 pyzmq
 simple-websocket
 six
